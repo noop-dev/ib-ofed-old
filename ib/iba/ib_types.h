@@ -10682,7 +10682,7 @@ typedef struct _ib_send_wr
 		struct _send_remote_ops
 		{
 			uint64_t			vaddr;
-			net32_t				rkey;
+			ib_net32_t			rkey;
 			ib_net64_t			atomic1;
 			ib_net64_t			atomic2;
 
