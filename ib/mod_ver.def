@@ -1,0 +1,20 @@
+
+# Define Major and Minor numbers for the current module build.
+# This file is included by openib.def & various makefile.inc so as to define
+# major & minor #'s in a single location.
+#
+# Major & Minor definitions can be defined in a local SOURCES file
+# which will override these definitions.
+
+!IF !DEFINED(IB_MAJORVERSION)
+IB_MAJORVERSION=2
+!ENDIF
+
+!IF !DEFINED(IB_MINORVERSION)
+IB_MINORVERSION=1
+!ENDIF
+
+# unused build version field
+!IF !DEFINED(IB_BUILDVERSION)
+IB_BUILDVERSION=3
+!ENDIF

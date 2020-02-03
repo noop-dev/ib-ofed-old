@@ -1,0 +1,32 @@
+
+!INCLUDE $(NTMAKEENV)\makefile.def
+
+# Allow overriding the company name.
+!IF !DEFINED(IB_COMPANYNAME)
+IB_COMPANYNAME="""Mellanox"""
+!ENDIF
+
+# Allow overriding the product name.
+!IF !DEFINED(IB_PRODUCTNAME)
+IB_PRODUCTNAME="""OpenFabrics\x20Windows"""
+!ENDIF
+
+# get module version: major, minor & build version
+!include mod_ver.def
+
+!IF !DEFINED(OPENIB_REV)
+OPENIB_REV=0
+!ENDIF
+
+!IFNDEF VER_PROVIDER
+VER_PROVIDER="""Mellanox"""
+!ENDIF
+
+C_DEFINES=$(C_DEFINES) -DIB_COMPANYNAME=$(IB_COMPANYNAME) \
+    -DIB_PRODUCTNAME=$(IB_PRODUCTNAME) \
+    -DVER_FILEMAJORVERSION=$(IB_MAJORVERSION) \
+    -DVER_FILEMINORVERSION=$(IB_MINORVERSION) \
+    -DVER_FILEBUILD=$(IB_BUILDVERSION) \
+    -DVER_FILEREV=$(OPENIB_REV) \
+    -DVER_PROVIDER=$(VER_PROVIDER) \
+    -DWINIB
